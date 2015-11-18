@@ -4,17 +4,17 @@
 
 <body>
   <h1>Welcome to Meteor!</h1>
-<div class="container">
-    {{> images}}
-    </div>
+  <div class="container">
+        {{> images}}
+  </div>
 </body>
 
-<template name="images">    
+<template name="images">
     <div class="row">
          {{#each images}}
     <div class="col-xs-12 col-md-3">
         <div class="thumbnail">
-            <img src="{{img_src}}" alt="img_alt"/>
+            <img src="{{img_src}}" alt="img_alt" class="js-img"/>
         </div>
         <div class="caption">
             <h3>Thumbnail Label</h3>
@@ -23,5 +23,5 @@
     </div>
     {{/each}}
     </div>
-   
+
 </template>

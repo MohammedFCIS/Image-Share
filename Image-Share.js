@@ -14,6 +14,12 @@ if (Meteor.isClient) {
         }
     ];
     Template.images.helpers({images:image_date});
+    Template.images.events({
+      "click .js-img": function(event, template){
+        $(event.target).css("width","50%");
+      }
+    });
+
 }
 
 if (Meteor.isServer) {
