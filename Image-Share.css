@@ -1,1 +1,4 @@
-/* CSS declarations go here */
+.thumnail{
+  min-height: 500px;
+  max-height: 500px;
+}
