@@ -2,7 +2,9 @@ var images = new Mongo.Collection("images");
 
 
 if (Meteor.isClient) {
-    Template.images.helpers({images:images.find()});
+    Template.images.helpers({images:images.find(
+      {}, {sort:{rating:-1}}
+    )});
     Template.images.events({
       "click .js-img": function(event, template){
         $(event.target).css("width","50%");
