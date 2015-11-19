@@ -12,9 +12,14 @@ if (Meteor.isClient) {
           $("#"+img_id).hide('slow', function(){
             images.remove({_id:img_id});
           });
-
-
-        }
+      },
+     "click .js-rate":function(event, template){
+       var rating = $(event.currentTarget).data('userrating');
+       var img_id = this.id;
+       images.update({_id:img_id}, {$set:{
+         rating:rating
+       }});
+     }
 
     });
 
