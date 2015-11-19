@@ -8,6 +8,11 @@ if (Meteor.isClient) {
         $(event.target).css("width","50%");
       },
       "click .js-del-btn":function(event, template){
+          var img_id = this._id;
+          $("#"+img_id).hide('slow', function(){
+            images.remove({_id:img_id});
+          });
+
 
         }
 
