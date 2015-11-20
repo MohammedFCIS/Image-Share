@@ -21,9 +21,13 @@ if (Meteor.isClient) {
        images.update({_id:img_id}, {$set:{
          rating:rating
        }});
+     },
+     "click .js-show-img-form":function(event){
+       $("#img_form_modal").modal("show");
      }
 
     });
+
 
     Template.image_add_form.helpers({
       create: function(){
@@ -49,7 +53,7 @@ if (Meteor.isClient) {
           img_alt:img_alt,
           created:new Date()
         });
-
+         $("#img_form_modal").modal("hide");
         return false;
       }
     });
