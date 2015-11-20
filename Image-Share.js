@@ -25,6 +25,36 @@ if (Meteor.isClient) {
 
     });
 
+    Template.image_add_form.helpers({
+      create: function(){
+
+      },
+      rendered: function(){
+
+      },
+      destroyed: function(){
+
+      },
+    });
+
+    Template.image_add_form.events({
+      "submit .js-add-img": function(event, template){
+        var img_src,img_alt;
+        img_src = event.target.img_src.value;
+        img_alt = event.target.img_alt.value;
+        event.target.img_src.value = "";
+        event.target.img_alt.value = "";
+        images.insert({
+          img_src:img_src,
+          img_alt:img_alt,
+          created:new Date()
+        });
+
+        return false;
+      }
+    });
+
+
 }
 
 if (Meteor.isServer) {
