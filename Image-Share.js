@@ -3,7 +3,7 @@ var images = new Mongo.Collection("images");
 
 if (Meteor.isClient) {
     Template.images.helpers({images:images.find(
-      {}, {sort:{rating:-1}}
+      {}, {sort:{created:-1, rating:-1}}
     )});
     Template.images.events({
       "click .js-img": function(event, template){
