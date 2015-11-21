@@ -1,7 +1,13 @@
 var images = new Mongo.Collection("images");
 
 
-if (Meteor.isClient) {
+if (Meteor.isClient) { 
+  Accounts.ui.config({
+    requestPermissions: {},
+    requestOfflineToken: {},
+    passwordSignupFields: "USERNAME_AND_OPTIONAL_EMAIL",
+  });
+
     Template.images.helpers({images:images.find(
       {}, {sort:{created:-1, rating:-1}}
     )});
