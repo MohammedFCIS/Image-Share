@@ -2,6 +2,11 @@ var images = new Mongo.Collection("images");
 
 
 if (Meteor.isClient) {
+  Session.set('imageLimit', 8);
+  lastScrollTop = 0;
+  $(window).scroll(function(events){
+
+  });
   Accounts.ui.config({
     requestPermissions: {},
     requestOfflineToken: {},
@@ -15,7 +20,10 @@ if (Meteor.isClient) {
                   {createdby:Session.get('userFilter')}, {sort:{created:-1, rating:-1}});
         } else {
           return images.find(
-                  {}, {sort:{created:-1, rating:-1}});
+                  {}, {
+                    sort:{created:-1, rating:-1},
+                    limit:Session.get('imageLimit')
+                    });
         }},
       getUser:function(user_id){
         var user = Meteor.users.findOne({_id:user_id});
