@@ -6,10 +6,10 @@
   {{> image_add_form}}
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-      {{> loginButtons}}      
+      {{> loginButtons}}
     </div>
   </nav>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Welcome {{username}}!</h1>
   <div class="container">
     {{> images}}
   </div>
@@ -39,7 +39,10 @@
 
 </template>
 <template name="images">
-  <button class="btn btn-success js-show-img-form">Add Image</button>
+  {{#if currentUser}}
+    <button class="btn btn-success js-show-img-form">Add Image</button>
+  {{/if}}
+
     <div class="row">
          {{#each images}}
     <div class="col-xs-12 col-md-3" id="{{_id}}">

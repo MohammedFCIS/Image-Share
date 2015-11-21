@@ -41,6 +41,20 @@ if (Meteor.isClient) {
       },
     });
 
+    Template.body.helpers({ username:function(){
+      if(Meteor.user()){
+        return Meteor.user().emails[0].address;
+      }
+    }
+    });
+
+    Template.name.events({
+      "click #foo": function(event, template){
+
+      }
+    });
+
+
     Template.image_add_form.events({
       "submit .js-add-img": function(event, template){
         var img_src,img_alt;
