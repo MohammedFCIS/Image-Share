@@ -7,6 +7,7 @@
   <h1>Welcome to Meteor!</h1>
   <div class="container">
     {{> loginButtons}}
+    <br>
     {{> images}}
   </div>
 </body>
@@ -39,7 +40,7 @@
     <div class="row">
          {{#each images}}
     <div class="col-xs-12 col-md-3" id="{{_id}}">
-        <div class="thumbnail">
+        <div class="thumbnail thumnail-img">
             <img src="{{img_src}}" alt="img_alt" class="js-img"/>
         </div>
         <div class="caption">

@@ -1,4 +1,6 @@
 .thumnail{
-  min-height: 500px;
-  max-height: 500px;
+  height: 500px;
+}
+.thumnail-img{
+  max-height: 300px;
 }
