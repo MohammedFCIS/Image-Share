@@ -1,7 +1,4 @@
-var images = new Mongo.Collection("images");
 
-
-if (Meteor.isClient) {
   Session.set('imageLimit', 8);
   lastScrollTop = 0;
   $(window).scroll(function(event){
@@ -115,20 +112,3 @@ if (Meteor.isClient) {
         return false;
       }
     });
-
-
-}
-
-if (Meteor.isServer) {
-  Meteor.startup(function(){
-    if (images.find().count() == 0) {
-          for (var i = 1; i < 23; i++) {
-               images.insert({
-                  img_src:"img_"+i+".jpg",
-                  img_alt:"img_"+i
-                });
-          }
-    }
-
-  });
-}
