@@ -9,8 +9,14 @@ if (Meteor.isClient) {
   });
 
     Template.images.helpers({
-      images:images.find(
-      {}, {sort:{created:-1, rating:-1}}),
+      images:function(){
+        if (Session.get('userFilter')) {
+          return images.find(
+                  {createdby:Session.get('userFilter')}, {sort:{created:-1, rating:-1}});
+        } else {
+          return images.find(
+                  {}, {sort:{created:-1, rating:-1}});
+        }},
       getUser:function(user_id){
         var user = Meteor.users.findOne({_id:user_id});
         if(user){
@@ -24,6 +30,9 @@ if (Meteor.isClient) {
     Template.images.events({
       "click .js-img": function(event, template){
         $(event.target).css("width","50%");
+      },
+      "click .js-set-user-filter": function(event, template){
+        Session.set('userFilter', this.createdby);
       },
       "click .js-del-btn":function(event, template){
           var img_id = this._id;
