@@ -54,6 +54,9 @@
             <p>Image Description</p>
             {{#if currentUser}}
             <p>
+              User: <a href="#" class="js-set-user-filter">{{getUser createdby}}</a>
+            </p>
+            <p>
               {{> starsRating id='rating' mutable=true class="js-rate" id=_id rating=rating}}
             </p>
             <button class="js-del-btn btn btn-danger">Delete</button>

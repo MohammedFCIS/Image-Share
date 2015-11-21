@@ -8,9 +8,19 @@ if (Meteor.isClient) {
     passwordSignupFields: "USERNAME_AND_OPTIONAL_EMAIL",
   });
 
-    Template.images.helpers({images:images.find(
-      {}, {sort:{created:-1, rating:-1}}
-    )});
+    Template.images.helpers({
+      images:images.find(
+      {}, {sort:{created:-1, rating:-1}}),
+      getUser:function(user_id){
+        var user = Meteor.users.findOne({_id:user_id});
+        if(user){
+          return user.username;
+        }else{
+          return "anon";
+        }
+
+      }
+    });
     Template.images.events({
       "click .js-img": function(event, template){
         $(event.target).css("width","50%");
@@ -54,12 +64,6 @@ if (Meteor.isClient) {
     }
     });
 
-    Template.name.events({
-      "click #foo": function(event, template){
-
-      }
-    });
-
 
     Template.image_add_form.events({
       "submit .js-add-img": function(event, template){
@@ -71,7 +75,8 @@ if (Meteor.isClient) {
         images.insert({
           img_src:img_src,
           img_alt:img_alt,
-          created:new Date()
+          created:new Date(),
+          createdby:Meteor.user()._id
         });
          $("#img_form_modal").modal("hide");
         return false;
