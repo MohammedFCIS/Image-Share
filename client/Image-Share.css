@@ -1,9 +1,16 @@
-.thumnail{
-  height: 500px;
+/* CSS declarations go here */
+.thumbnail {
+	height:500px;
+	word-wrap:break-word;
 }
-.thumnail-img{
-  max-height: 300px;
+
+.thumbnail-img{
+	max-height:200px;
 }
+
 body{
-  padding-top: 60px;
+	padding-top:60px;
+}
+.single-img{
+	max-width:100%;
 }
