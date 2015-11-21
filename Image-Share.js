@@ -1,7 +1,7 @@
 var images = new Mongo.Collection("images");
 
 
-if (Meteor.isClient) { 
+if (Meteor.isClient) {
   Accounts.ui.config({
     requestPermissions: {},
     requestOfflineToken: {},
@@ -49,7 +49,7 @@ if (Meteor.isClient) {
 
     Template.body.helpers({ username:function(){
       if(Meteor.user()){
-        return Meteor.user().emails[0].address;
+        return Meteor.user().username;
       }
     }
     });
