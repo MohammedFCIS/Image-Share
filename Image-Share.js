@@ -5,6 +5,9 @@ if (Meteor.isClient) {
   Session.set('imageLimit', 8);
   lastScrollTop = 0;
   $(window).scroll(function(events){
+    if($(window).scrollTop() + $(window).height() >= $(document).height()){
+      console.log(new Date());
+    }
 
   });
   Accounts.ui.config({
