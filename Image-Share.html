@@ -42,7 +42,9 @@
   {{#if currentUser}}
     <button class="btn btn-success js-show-img-form">Add Image</button>
   {{/if}}
-
+  {{#if filtring_images}}
+    Imaged are filtred. <a href="#" class="js-remove-filter">remove Filter?</a>
+  {{/if}}
     <div class="row">
          {{#each images}}
     <div class="col-xs-12 col-md-3" id="{{_id}}">

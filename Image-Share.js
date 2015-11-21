@@ -24,7 +24,9 @@ if (Meteor.isClient) {
         }else{
           return "anon";
         }
-
+      },
+      filtring_images:function(){
+        return Session.get('userFilter');
       }
     });
     Template.images.events({
@@ -33,6 +35,8 @@ if (Meteor.isClient) {
       },
       "click .js-set-user-filter": function(event, template){
         Session.set('userFilter', this.createdby);
+      },"click .js-remove-filter": function(event, template){
+        Session.set('userFilter', null);
       },
       "click .js-del-btn":function(event, template){
           var img_id = this._id;
