@@ -4,10 +4,11 @@
 
 <body>
   {{> image_add_form}}
+  <nav class="navbar navbar-default navbar-fixed-top">
+    {{> loginButtons}}
+  </nav>
   <h1>Welcome to Meteor!</h1>
   <div class="container">
-    {{> loginButtons}}
-    <br>
     {{> images}}
   </div>
 </body>
